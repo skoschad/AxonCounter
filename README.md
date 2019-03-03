@@ -1,7 +1,7 @@
 # AxonCounter
 
 ## Installation
-To install this macro, simply download the file AxonCounter.jar to the plugins folder, or subfolder, within your ImageJ folder. Restart ImageJ and there will be a new AxonCounter command in the Plugins menu or submenu.
+To install this macro, simply download the file AxonCounter_.jar to the plugins folder, or subfolder, within your ImageJ folder. Restart ImageJ and there will be a new AxonCounter command in the Plugins menu or submenu.
 
 Make sure you also have ImageJ's Cell Counter plugin installed (should be included in the default installation). It is available from https://imagej.nih.gov/ij/plugins/cell-counter.html. 
 
