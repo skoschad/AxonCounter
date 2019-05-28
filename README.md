@@ -10,7 +10,7 @@ To use this tool as intended in Koschade et al., 2019:
 
 1. Open a digital microscopy image in ImageJ. 
 
-This should a high-resolution image of the entire optic nerve. Make sure the image's scale is set correctly (pixels need to correspond to a physical unit of length). Either calibrate manually using Analyze > Set Scale, or try opening the image using Fiji's Bio-Formats Importer, which is very good at doing this automatically for you. 
+This should be a high-resolution image of the entire optic nerve. Make sure the image's scale is set correctly (pixels need to correspond to a physical unit of length). Either calibrate manually using Analyze > Set Scale, or try opening the image using Fiji's Bio-Formats Importer, which is very good at doing this automatically for you. 
 
 2. Trace the outline of the optic nerve using ImageJ's Polygon Selection tool. Make sure to close the selection by left-clicking on the initial node when done. Add this outline to the ROI manager (Edit > Selection > Add to Manager, or press Ctrl-T).
 
