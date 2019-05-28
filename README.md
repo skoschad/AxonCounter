@@ -10,11 +10,15 @@ To use this tool as intended in Koschade et al., 2019:
 
 1. Open a digital microscopy image in ImageJ. 
 
-Make sure the image's scale is set correctly (pixels need to correspond to a physical unit of length). Either calibrate manually using Analyze > Set Scale, or try opening the image using Fiji's Bio-Formats Importer, which is very good at doing this automatically for you. 
+This should a high-resolution image of the entire optic nerve. Make sure the image's scale is set correctly (pixels need to correspond to a physical unit of length). Either calibrate manually using Analyze > Set Scale, or try opening the image using Fiji's Bio-Formats Importer, which is very good at doing this automatically for you. 
 
 2. Trace the outline of the optic nerve using ImageJ's Polygon Selection tool. Make sure to close the selection by left-clicking on the initial node when done. Add this outline to the ROI manager (Edit > Selection > Add to Manager, or press Ctrl-T).
 
+Note: In cases of regional injury or when information regarding different areas of the optic nerve are required, also use the Polygon Selection tool to create  different, non-overlapping strata. Then proceed with the process below sequentially for each stratum. The axon number estimates from the different strata will need to be added together to arrive at the estimate of the total optic nerve axon number.  
+
 3. With the outline selected within the ROI manager and active, start the AxonCounter plugin. Chose the desired sampling method and sampling parameters; then, click OK.
+
+Note: The publication's recommendation are to use a sampling fraction of 5—10% and a counting frame size of about 4x4 µm.
 
 4. The AxonCounter plugin draws unbiased counting frames onto the selected image according to the chosen sampling method and sampling parameters.
 
@@ -32,3 +36,5 @@ As outlined in the manuscript, unbiased counting frames consist of two exclusion
 
 ## History
 2019-02-06: first version
+
+2019-05-28: some clarifications
