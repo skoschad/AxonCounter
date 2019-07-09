@@ -71,6 +71,7 @@ public class CountingFrames extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jTabbedPane = new javax.swing.JTabbedPane();
         jPanelNewSampling = new javax.swing.JPanel();
         comboSamplingScheme = new javax.swing.JComboBox();
@@ -103,12 +104,10 @@ public class CountingFrames extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jButtonMeasure = new javax.swing.JButton();
         jSpinnerEmpSamplingFraction = new javax.swing.JSpinner();
         jSpinnerCount = new javax.swing.JSpinner();
-        jSpinnerSE = new javax.swing.JSpinner();
         jText_Estimate = new javax.swing.JTextField();
         jButton_CopyToClipboard = new javax.swing.JButton();
         jButton_AddtoResults = new javax.swing.JButton();
@@ -117,7 +116,7 @@ public class CountingFrames extends javax.swing.JFrame {
 
         comboSamplingScheme.setModel(new javax.swing.DefaultComboBoxModel(sampling_schemes));
         // set twodsys as default
-        comboSamplingScheme.setSelectedIndex(2);
+        comboSamplingScheme.setSelectedIndex(1);
         comboSamplingScheme.setToolTipText("");
         comboSamplingScheme.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -139,6 +138,7 @@ public class CountingFrames extends javax.swing.JFrame {
 
         jLabel4.setText("Height:");
 
+        buttonGroup1.add(radio_FrameDistances);
         radio_FrameDistances.setText("Set distances between counting frames manually");
         radio_FrameDistances.setToolTipText("");
         radio_FrameDistances.addItemListener(new java.awt.event.ItemListener() {
@@ -147,11 +147,17 @@ public class CountingFrames extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(radio_SF);
         radio_SF.setSelected(true);
         radio_SF.setText("Specify sampling fraction");
         radio_SF.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 radio_SFItemStateChanged(evt);
+            }
+        });
+        radio_SF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radio_SFActionPerformed(evt);
             }
         });
 
@@ -232,10 +238,15 @@ public class CountingFrames extends javax.swing.JFrame {
         jPanelNewSamplingLayout.setHorizontalGroup(
             jPanelNewSamplingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelNewSamplingLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
                 .addGroup(jPanelNewSamplingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spinner_cfx, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spinner_cfy, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelNewSamplingLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addGroup(jPanelNewSamplingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(spinner_cfx, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spinner_cfy, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelNewSamplingLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(comboSamplingScheme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(454, Short.MAX_VALUE))
             .addGroup(jPanelNewSamplingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelNewSamplingLayout.createSequentialGroup()
@@ -268,7 +279,6 @@ public class CountingFrames extends javax.swing.JFrame {
                                         .addComponent(spinner_sf)
                                         .addComponent(spinner_dy)
                                         .addComponent(spinner_dx)))
-                                .addComponent(comboSamplingScheme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(labelChoose)
                                 .addComponent(jLabel7)
                                 .addGroup(jPanelNewSamplingLayout.createSequentialGroup()
@@ -285,7 +295,9 @@ public class CountingFrames extends javax.swing.JFrame {
         jPanelNewSamplingLayout.setVerticalGroup(
             jPanelNewSamplingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelNewSamplingLayout.createSequentialGroup()
-                .addGap(108, 108, 108)
+                .addGap(27, 27, 27)
+                .addComponent(comboSamplingScheme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
                 .addComponent(spinner_cfx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spinner_cfy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -294,9 +306,7 @@ public class CountingFrames extends javax.swing.JFrame {
                 .addGroup(jPanelNewSamplingLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(labelChoose)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(comboSamplingScheme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGap(39, 39, 39)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(jPanelNewSamplingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -359,8 +369,6 @@ public class CountingFrames extends javax.swing.JFrame {
 
         jLabel12.setText("Estimated total number:");
 
-        jLabel13.setText("Standard error:");
-
         jButtonMeasure.setText("Get estimates");
         jButtonMeasure.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -377,9 +385,6 @@ public class CountingFrames extends javax.swing.JFrame {
                 jSpinnerCountStateChanged(evt);
             }
         });
-
-        jSpinnerSE.setModel(new javax.swing.SpinnerNumberModel(0.0d, null, null, 1.0d));
-        jSpinnerSE.setEnabled(false);
 
         jText_Estimate.setEditable(false);
 
@@ -413,7 +418,7 @@ public class CountingFrames extends javax.swing.JFrame {
                         .addGroup(jPanelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jSpinnerEmpSamplingFraction, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
                             .addComponent(jSpinnerCount))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                         .addGroup(jPanelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonLoadPreviousScheme)
                             .addComponent(jButtonLoadCounted)))
@@ -421,22 +426,15 @@ public class CountingFrames extends javax.swing.JFrame {
                         .addGroup(jPanelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonMeasure)
                             .addGroup(jPanelResultsLayout.createSequentialGroup()
-                                .addGroup(jPanelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelResultsLayout.createSequentialGroup()
-                                        .addComponent(jLabel13)
-                                        .addGap(91, 91, 91))
-                                    .addGroup(jPanelResultsLayout.createSequentialGroup()
-                                        .addComponent(jLabel12)
-                                        .addGap(33, 33, 33)))
+                                .addComponent(jLabel12)
+                                .addGap(33, 33, 33)
                                 .addGroup(jPanelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelResultsLayout.createSequentialGroup()
                                         .addGap(153, 153, 153)
                                         .addComponent(jButtonSaveScheme))
                                     .addGroup(jPanelResultsLayout.createSequentialGroup()
-                                        .addGroup(jPanelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jText_Estimate, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jSpinnerSE, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
-                                        .addGap(61, 61, 61)
+                                        .addComponent(jText_Estimate, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(76, 76, 76)
                                         .addGroup(jPanelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jButton_AddtoResults)
                                             .addComponent(jButton_CopyToClipboard))))))
@@ -444,7 +442,7 @@ public class CountingFrames extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanelResultsLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jSpinnerCount, jSpinnerEmpSamplingFraction, jSpinnerSE});
+        jPanelResultsLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jSpinnerCount, jSpinnerEmpSamplingFraction});
 
         jPanelResultsLayout.setVerticalGroup(
             jPanelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -467,10 +465,7 @@ public class CountingFrames extends javax.swing.JFrame {
                     .addComponent(jText_Estimate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_CopyToClipboard))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jSpinnerSE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_AddtoResults))
+                .addComponent(jButton_AddtoResults)
                 .addGap(18, 18, 18)
                 .addGroup(jPanelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonMeasure)
@@ -655,7 +650,7 @@ public class CountingFrames extends javax.swing.JFrame {
 
     private void radio_SFItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_radio_SFItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            // disable text fields to specify dx and dy
+            // disable dx dy elements
             spinner_dx.setEnabled(false);
             spinner_dy.setEnabled(false);
             // enable spinner to specify sampling fraction
@@ -674,17 +669,7 @@ public class CountingFrames extends javax.swing.JFrame {
     }//GEN-LAST:event_radio_FrameDistancesItemStateChanged
 
     private void comboSamplingSchemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSamplingSchemeActionPerformed
-        // TODO add your handling code here:
-        //        CardLayout card = (CardLayout)jMainPanel.getLayout();
-        //        String selected = (String) jComboBox1.getSelectedItem();
-        //    if (selected.equals(srswor)) {
-            //        card.next(jMainPanel);
-            //        //card.show(jMainPanel, "jPanelSrswor");
-            //    } else if (selected.equals(twodsys)) {
-            //        card.show(jMainPanel, "jPanelSurs");
-            //    } else if (selected.equals(stratrs)) {
-            //        card.show(jMainPanel, "jPanelStratrs");
-            //    }
+
     }//GEN-LAST:event_comboSamplingSchemeActionPerformed
 
     private void comboSamplingSchemeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboSamplingSchemeItemStateChanged
@@ -695,7 +680,7 @@ public class CountingFrames extends javax.swing.JFrame {
         String selected = (String)comboSamplingScheme.getSelectedItem();
         if (selected.equals(srswor)) {
             // only specification of a sampling fraction makes sense
-            //radio_FrameDistances.setEnabled(false);
+            radio_SF.setEnabled(true);
             radio_SF.doClick();
             radio_FrameDistances.setEnabled(false);
         }  else if (selected.equals(stratrs)) {
@@ -728,24 +713,36 @@ public class CountingFrames extends javax.swing.JFrame {
         rt.show("Results");
     }//GEN-LAST:event_jButton_AddtoResultsActionPerformed
 
+    private void radio_SFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_SFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radio_SFActionPerformed
+
     
     private void enable_SF() {
+        // enable radio
+        //radio_SF.setEnabled(true);
         // enable spinner to specify sampling fractions
         spinner_sf.setEnabled(true);
     }
     
     private void disable_SF() {
+         // disable radio
+        //radio_SF.setEnabled(false);
         // disable spinner to specify sampling fractions
         spinner_sf.setEnabled(false);
     }
     
     private void enable_dxdy() {
+        // enable radio
+        //radio_FrameDistances.setEnabled(true);
         // enable text fields to specify dx and dy
         spinner_dx.setEnabled(true);
         spinner_dy.setEnabled(true);
     }
     
     private void disable_dxdy() {
+        // disable radio
+        //radio_FrameDistances.setEnabled(false);
         // disable text fields to specify dx and dy
         spinner_dx.setEnabled(false);
         spinner_dy.setEnabled(false);
@@ -894,6 +891,7 @@ public class CountingFrames extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox comboColor;
     private javax.swing.JComboBox comboSamplingScheme;
     private javax.swing.JButton jButtonLoadCounted;
@@ -907,7 +905,6 @@ public class CountingFrames extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -923,7 +920,6 @@ public class CountingFrames extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSpinner jSpinnerCount;
     private javax.swing.JSpinner jSpinnerEmpSamplingFraction;
-    private javax.swing.JSpinner jSpinnerSE;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JTextField jText_Estimate;
     private javax.swing.JLabel labelChoose;
