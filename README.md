@@ -1,9 +1,14 @@
 # AxonCounter
+This software is provided "as is", without warranty of any kind. In no event shall the authors be liable for any claim, damages, or other liability.  
+
+Questions, comments, requests, or error messages? Write an email to ![mailto](misc/mail.png)
 
 ## Installation
-To install this macro, simply download the file AxonCounter_.jar to the plugins folder, or subfolder, within your ImageJ folder. Restart ImageJ and there will be a new AxonCounter command in the Plugins menu or submenu.
+To install this macro, simply download the file AxonCounter_.jar to the plugins folder, or subfolder, within your ImageJ folder (Mac users: Right-click onto the ImageJ application and select Show Package Contents). Restart ImageJ and there will be a new AxonCounter command in the Plugins menu or submenu.
 
-Make sure you also have ImageJ's Cell Counter plugin installed (should be included in the default installation). It is available from https://imagej.nih.gov/ij/plugins/cell-counter.html. 
+You will also need to download the latest Uncommons Maths package from https://github.com/dwdyer/uncommons-maths/downloads. Copy the uncommons-maths-X.jar file to the jre/lib folder within your ImageJ folder. This provides the random number generator.
+
+Finally, make sure you also have ImageJ's Cell Counter plugin installed (should be included in the default installation). It is available from https://imagej.nih.gov/ij/plugins/cell-counter.html. 
 
 ## Usage
 To use this tool as intended in Koschade et al., 2019:
@@ -38,3 +43,5 @@ As outlined in the manuscript, unbiased counting frames consist of two exclusion
 2019-02-06: first version
 
 2019-05-28: some clarifications
+
+2019-07-10: contact, uncommons-maths
